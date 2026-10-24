@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StyleByte – Fashion and tech picks worth buying</title>
+<meta name="description" content="Honest, short reviews of fashion and electronics. Best picks, budget picks and what to skip.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16213a;--rose:#ecd0c8;--slate:#cddbe7;--paper:#f7f8fa;--line:#d5d9e0;--pop:#e4572e;--blue:#2b59ff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.wrap{padding:0 5vw}
+header{position:sticky;top:0;z-index:10;background:rgba(247,248,250,.95);backdrop-filter:blur(8px);display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;border-bottom:1px solid var(--line)}
+.logo{font-weight:800;font-size:1.4rem;text-decoration:none;letter-spacing:-.03em}
+.logo span{color:var(--pop)}
+nav{display:flex;gap:18px;align-items:center}
+nav a{text-decoration:none;font-weight:600;font-size:.95rem}
+nav a:hover{text-decoration:underline}
+.pill{background:var(--ink);color:#fff;padding:8px 16px;border-radius:999px}
+.pill:hover{background:var(--pop);text-decoration:none!important}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:0;min-height:68vh}
+.hl{padding:8vw 5vw;display:flex;flex-direction:column;justify-content:center;gap:20px}
+.hl h1{font-size:clamp(2.6rem,6.5vw,5.4rem);line-height:.96;margin:0;letter-spacing:-.045em;font-weight:800}
+.hl h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--rose) 62%)}
+.hl p{margin:0;font-size:1.15rem;max-width:42ch}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:600;text-decoration:none;padding:13px 24px;border-radius:6px;border:2px solid var(--ink);cursor:pointer;display:inline-block}
+.btn.solid{background:var(--ink);color:#fff}
+.btn.solid:hover{background:var(--pop);border-color:var(--pop)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.hr{display:grid;grid-template-rows:1fr 1fr}
+.hr a{text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end;padding:4vw 5vw}
+.hr a:first-child{background:var(--rose)}
+.hr a:last-child{background:var(--slate)}
+.hr b{font-size:clamp(2rem,5vw,3.6rem);letter-spacing:-.04em;line-height:1}
+.hr small{font-size:1rem}
+.hr a:hover b{text-decoration:underline;text-decoration-thickness:4px}
+
+.trust{display:flex;flex-wrap:wrap;gap:10px 32px;justify-content:center;padding:18px 5vw;background:var(--ink);color:#fff;font-weight:600;font-size:.95rem}
+
+section.blk{padding:60px 5vw}
+h2{font-size:clamp(1.7rem,3.5vw,2.4rem);margin:0 0 6px;letter-spacing:-.03em}
+.sub{margin:0 0 26px;opacity:.75}
+
+.feat{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--ink);border-radius:8px;overflow:hidden;background:#fff}
+.feat .art{background:var(--slate);display:flex;align-items:center;justify-content:center;font-size:5rem;min-height:260px;position:relative}
+.feat .art img,.thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.feat .txt{padding:32px;display:flex;flex-direction:column;gap:12px;justify-content:center}
+.feat h3{font-size:1.8rem;margin:0;letter-spacing:-.03em}
+.tag{align-self:flex-start;background:var(--pop);color:#fff;font-weight:600;font-size:.8rem;padding:4px 10px;border-radius:4px}
+
+.tools{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;margin-bottom:24px}
+.tabs button{font:inherit;font-weight:600;border:1.5px solid var(--ink);background:transparent;color:var(--ink);padding:8px 18px;border-radius:999px;margin:0 6px 6px 0;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.tools input{font:inherit;padding:9px 14px;border:1.5px solid var(--ink);border-radius:6px;min-width:220px;background:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(22,33,58,.12)}
+.thumb{height:180px;display:flex;align-items:center;justify-content:center;font-size:3.4rem;position:relative}
+.card[data-cat="Fashion"] .thumb{background:var(--rose)}
+.card[data-cat="Electronics"] .thumb{background:var(--slate)}
+.badge{position:absolute;top:10px;left:10px;background:var(--ink);color:#fff;font-size:.78rem;font-weight:600;padding:3px 9px;border-radius:4px;z-index:1}
+.body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.meta{display:flex;justify-content:space-between;font-size:.85rem;font-weight:600}
+.stars{color:var(--pop);letter-spacing:1px}
+.body h4{margin:0;font-size:1.15rem;line-height:1.25}
+.body p{margin:0;font-size:.97rem}
+.body ul{margin:0;padding-left:18px;font-size:.92rem;flex:1}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.price{font-weight:800;font-size:1.1rem}
+.buy{background:var(--ink);color:#fff;text-decoration:none;font-weight:600;padding:9px 16px;border-radius:5px}
+.buy:hover{background:var(--pop)}
+.empty{grid-column:1/-1;padding:30px;text-align:center;border:1.5px dashed var(--line);border-radius:8px}
+
+.how{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.cols div{padding:22px;border-left:4px solid var(--pop)}
+.cols h3{margin:0 0 6px;font-size:1.15rem}
+.cols p{margin:0}
+details{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin-bottom:10px;max-width:760px}
+summary{font-weight:600;cursor:pointer}
+details p{margin:10px 0 0}
+.join{background:var(--rose);border-radius:8px;padding:34px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.join h2{margin:0}
+footer{padding:30px 5vw;border-top:1px solid var(--line);font-size:.92rem}
+footer p{max-width:72ch;margin:0 0 8px}
+
+@media (max-width:760px){
+  .hero,.feat{grid-template-columns:1fr}
+  .hr{grid-template-rows:none;grid-template-columns:1fr 1fr}
+  .hr a{min-height:150px}
+  nav a:not(.pill){display:none}
+  .hl{padding:10vw 5vw}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#top" id="top">Style<span>Byte</span></a>
+  <nav><a href="#picks">All picks</a><a href="#how">How we choose</a><a href="#faq">FAQ</a><a class="pill" href="#picks">Top picks</a></nav>
+</header>
+
+<section class="hero">
+  <div class="hl">
+    <h1>Style meets tech. <em>Picked</em> for you.</h1>
+    <p>Short, honest reviews of fashion and electronics, so you buy the right thing the first time.</p>
+    <div class="cta"><a class="btn solid" href="#picks">See top picks</a><a class="btn ghost" href="#how">How we choose</a></div>
+  </div>
+  <div class="hr">
+    <a href="#picks" data-go="Fashion"><b>Wear</b><small>Sneakers, bags, hoodies</small></a>
+    <a href="#picks" data-go="Electronics"><b>Wire</b><small>Audio, chargers, watches</small></a>
+  </div>
+</section>
+
+<div class="trust"><span>✓ Honest reviews</span><span>✓ Updated every week</span><span>✓ Direct store links</span><span>✓ No extra cost to you</span></div>
+
+<section class="blk" id="editors">
+  <h2>Editor’s pick of the week</h2>
+  <p class="sub">The one product we would buy first right now.</p>
+  <div class="feat">
+    <div class="art" id="featArt">🎧</div>
+    <div class="txt">
+      <span class="tag">EDITOR’S PICK</span>
+      <h3 id="featTitle"></h3>
+      <p id="featBlurb"></p>
+      <div><a class="btn solid" id="featBuy" target="_blank" rel="sponsored noopener">Check price</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="blk" id="picks" style="padding-top:0">
+  <h2>All picks</h2>
+  <p class="sub">Filter by category or search for something specific.</p>
+  <div class="tools">
+    <div class="tabs" role="group" aria-label="Filter products">
+      <button data-filter="All" aria-pressed="true">All</button>
+      <button data-filter="Fashion" aria-pressed="false">Fashion</button>
+      <button data-filter="Electronics" aria-pressed="false">Electronics</button>
+    </div>
+    <input type="search" id="q" placeholder="Search products…" aria-label="Search products">
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="blk how" id="how">
+  <h2>How we choose</h2>
+  <p class="sub">Three simple rules for every product on this site.</p>
+  <div class="cols">
+    <div><h3>1. Real value</h3><p>We look at price against quality, not hype or brand names.</p></div>
+    <div><h3>2. Honest pros and cons</h3><p>Every pick lists what is good and what to watch out for.</p></div>
+    <div><h3>3. Kept fresh</h3><p>Prices and picks are checked often, and weak products are removed.</p></div>
+  </div>
+</section>
+
+<section class="blk" id="faq">
+  <h2>Questions</h2>
+  <p class="sub">Quick answers.</p>
+  <details><summary>Do I pay extra when I use your links?</summary><p>No. The price is the same for you. The store may pay us a small commission when you buy.</p></details>
+  <details><summary>Do commissions change what you recommend?</summary><p>No. We only list products we would buy ourselves, and we mention the downsides too.</p></details>
+  <details><summary>How often are the picks updated?</summary><p>We review the list regularly and add new products as we find them.</p></details>
+</section>
+
+<section class="blk" style="padding-top:0">
+  <div class="join">
+    <div><h2>Get new picks first</h2><p style="margin:0">Follow StyleByte on Pinterest for fresh finds.</p></div>
+    <a class="btn solid" href="#" target="_blank" rel="noopener" id="pin">Follow on Pinterest</a>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Affiliate disclosure:</strong> Some links on this site are affiliate links. If you buy through them, we may earn a commission at no extra cost to you. This never changes which products we recommend.</p>
+  <p>© <span id="yr"></span> StyleByte. All rights reserved.</p>
+</footer>
+
+<script>
+/* ===== EDIT HERE =====
+   cat: "Fashion" or "Electronics" | badge: small label (or "") | rating: 1 to 5
+   pros: list of short points | link: your affiliate link | img: image URL (or "") | emoji: shown when no image */
+const PRODUCTS = [
+  {title:"Everyday Canvas Sneakers", cat:"Fashion", badge:"Best seller", rating:4.5, price:"$39", blurb:"Light, easy to clean and goes with almost everything.", pros:["Comfortable all day","Easy to wash","Many colours"], link:"#", img:"", emoji:"👟"},
+  {title:"Slim Leather Crossbody Bag", cat:"Fashion", badge:"Top rated", rating:4.6, price:"$46", blurb:"Fits a phone, wallet and keys without bulk.", pros:["Looks premium","Adjustable strap","Secure zip"], link:"#", img:"", emoji:"👜"},
+  {title:"Oversized Cotton Hoodie", cat:"Fashion", badge:"Budget pick", rating:4.3, price:"$34", blurb:"Heavy fabric that keeps its shape after washing.", pros:["Soft inside","Holds shape","Good value"], link:"#", img:"", emoji:"🧥"},
+  {title:"Classic Minimal Watch", cat:"Fashion", badge:"", rating:4.4, price:"$52", blurb:"Clean dial that works for work and weekends.", pros:["Slim design","Water resistant","Leather strap"], link:"#", img:"", emoji:"⌚"},
+  {title:"Wireless Earbuds with ANC", cat:"Electronics", badge:"Editor’s pick", rating:4.5, price:"$59", blurb:"Solid noise cancelling and a full day of battery.", pros:["Good bass","Strong ANC","Fast charging case"], link:"#", img:"", emoji:"🎧"},
+  {title:"65W Fast Charger", cat:"Electronics", badge:"Must have", rating:4.7, price:"$28", blurb:"Charges a phone and a laptop from one small brick.", pros:["Very compact","Two ports","Runs cool"], link:"#", img:"", emoji:"🔌"},
+  {title:"Smartwatch with Heart-Rate Tracking", cat:"Electronics", badge:"Budget pick", rating:4.2, price:"$74", blurb:"Bright screen, week-long battery, simple app.", pros:["Long battery","Sleep tracking","Light on wrist"], link:"#", img:"", emoji:"⌚"},
+  {title:"Compact Bluetooth Speaker", cat:"Electronics", badge:"", rating:4.4, price:"$32", blurb:"Loud for its size and survives splashes.", pros:["Waterproof","12-hour battery","Clear sound"], link:"#", img:"", emoji:"🔊"}
+];
+const FEATURED = 4; /* index of the product shown as Editor’s pick */
+
+const grid = document.getElementById("grid"), q = document.getElementById("q");
+let filter = "All";
+const stars = r => "★".repeat(Math.round(r)) + "☆".repeat(5 - Math.round(r));
+
+function render(){
+  const term = q.value.trim().toLowerCase();
+  const list = PRODUCTS.filter(p => (filter === "All" || p.cat === filter) && (p.title + " " + p.blurb).toLowerCase().includes(term));
+  grid.innerHTML = "";
+  if(!list.length){ grid.innerHTML = '<div class="empty">No products found. Try another word.</div>'; return; }
+  list.forEach(p => {
+    const el = document.createElement("article"); el.className = "card"; el.dataset.cat = p.cat;
+    el.innerHTML = '<div class="thumb"></div><div class="body"><div class="meta"><span class="c"></span><span class="stars"></span></div><h4></h4><p></p><ul></ul><div class="row"><span class="price"></span><a class="buy" target="_blank" rel="sponsored noopener">See price</a></div></div>';
+    const t = el.querySelector(".thumb");
+    if(p.img){ const i = document.createElement("img"); i.src = p.img; i.alt = p.title; i.loading = "lazy"; t.appendChild(i); } else t.textContent = p.emoji || "";
+    if(p.badge){ const b = document.createElement("span"); b.className = "badge"; b.textContent = p.badge; t.appendChild(b); }
+    el.querySelector(".c").textContent = p.cat;
+    const s = el.querySelector(".stars"); s.textContent = stars(p.rating) + " " + p.rating; s.setAttribute("aria-label", "Rated " + p.rating + " out of 5");
+    el.querySelector("h4").textContent = p.title;
+    el.querySelector("p").textContent = p.blurb;
+    p.pros.forEach(x => { const li = document.createElement("li"); li.textContent = x; el.querySelector("ul").appendChild(li); });
+    el.querySelector(".price").textContent = p.price;
+    const a = el.querySelector(".buy"); a.href = p.link; a.setAttribute("aria-label", "See price for " + p.title);
+    grid.appendChild(el);
+  });
+}
+function setFilter(f){
+  filter = f;
+  document.querySelectorAll(".tabs button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.filter === f)));
+  render();
+}
+document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => setFilter(b.dataset.filter)));
+document.querySelectorAll("[data-go]").forEach(a => a.addEventListener("click", () => setFilter(a.dataset.go)));
+q.addEventListener("input", render);
+
+const f = PRODUCTS[FEATURED];
+document.getElementById("featTitle").textContent = f.title;
+document.getElementById("featBlurb").textContent = f.blurb + " Price: " + f.price + ".";
+document.getElementById("featBuy").href = f.link;
+const art = document.getElementById("featArt");
+if(f.img){ art.textContent = ""; const i = document.createElement("img"); i.src = f.img; i.alt = f.title; art.appendChild(i); } else art.textContent = f.emoji || "";
+document.getElementById("yr").textContent = new Date().getFullYear();
+render();
+</script>
+</body>
+</html>
